@@ -13,6 +13,9 @@
 		3F18E47F1F9757A500B82022 /* LostAndFound.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F18E47D1F9757A500B82022 /* LostAndFound.xcdatamodeld */; };
 		3F18E4811F9757A500B82022 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F18E4801F9757A500B82022 /* Assets.xcassets */; };
 		3F18E4841F9757A500B82022 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F18E4821F9757A500B82022 /* LaunchScreen.storyboard */; };
+		3F18E48E1F97756900B82022 /* LFItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18E48D1F97756900B82022 /* LFItemTableViewCell.swift */; };
+		3F18E4901F97764400B82022 /* LFTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18E48F1F97764400B82022 /* LFTableViewController.swift */; };
+		3F18E4921F977B1900B82022 /* LFItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18E4911F977B1900B82022 /* LFItemProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		3F18E4801F9757A500B82022 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F18E4831F9757A500B82022 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F18E4851F9757A500B82022 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F18E48D1F97756900B82022 /* LFItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFItemTableViewCell.swift; sourceTree = "<group>"; };
+		3F18E48F1F97764400B82022 /* LFTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFTableViewController.swift; sourceTree = "<group>"; };
+		3F18E4911F977B1900B82022 /* LFItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFItemProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				3F18E4761F9757A500B82022 /* AppDelegate.swift */,
 				3F18E4781F9757A500B82022 /* ViewController.swift */,
 				3F18E47A1F9757A500B82022 /* Main.storyboard */,
+				3F18E48F1F97764400B82022 /* LFTableViewController.swift */,
+				3F18E48D1F97756900B82022 /* LFItemTableViewCell.swift */,
+				3F18E4911F977B1900B82022 /* LFItemProtocol.swift */,
 				3F18E4801F9757A500B82022 /* Assets.xcassets */,
 				3F18E4821F9757A500B82022 /* LaunchScreen.storyboard */,
 				3F18E4851F9757A500B82022 /* Info.plist */,
@@ -140,7 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F18E4791F9757A500B82022 /* ViewController.swift in Sources */,
+				3F18E4901F97764400B82022 /* LFTableViewController.swift in Sources */,
 				3F18E47F1F9757A500B82022 /* LostAndFound.xcdatamodeld in Sources */,
+				3F18E48E1F97756900B82022 /* LFItemTableViewCell.swift in Sources */,
+				3F18E4921F977B1900B82022 /* LFItemProtocol.swift in Sources */,
 				3F18E4771F9757A500B82022 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
