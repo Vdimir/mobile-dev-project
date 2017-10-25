@@ -15,7 +15,7 @@ class LFTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "FOoo"
         items.append(LFItem(title: "fff", desc: "barrrr"))
         items.append(LFItem(title: "12344", desc: "ncomment the following line to preserve selection between presentations sf"))
         // Uncomment the following line to preserve selection between presentations
@@ -93,14 +93,19 @@ class LFTableViewController: UITableViewController {
     }
     */
 
-    /*
+    /**/
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "show_lostfound_datail" {
+            let dest = (segue.destination as? LFDetailsViewController);
+            dest?.item = items[self.tableView.indexPathForSelectedRow!.row]
+        }
+        
     }
-    */
+    /**/
 
 }
