@@ -16,6 +16,7 @@
 		3F18E48E1F97756900B82022 /* LFItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18E48D1F97756900B82022 /* LFItemTableViewCell.swift */; };
 		3F18E4901F97764400B82022 /* LFTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18E48F1F97764400B82022 /* LFTableViewController.swift */; };
 		3F18E4921F977B1900B82022 /* LFItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18E4911F977B1900B82022 /* LFItemProtocol.swift */; };
+		3F1F18EA1FB2E7EA004FFEF6 /* LFAddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F18E91FB2E7EA004FFEF6 /* LFAddItemViewController.swift */; };
 		3F29BC9A1FA0A496004A0A95 /* LFDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29BC991FA0A496004A0A95 /* LFDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		3F18E48D1F97756900B82022 /* LFItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFItemTableViewCell.swift; sourceTree = "<group>"; };
 		3F18E48F1F97764400B82022 /* LFTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFTableViewController.swift; sourceTree = "<group>"; };
 		3F18E4911F977B1900B82022 /* LFItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFItemProtocol.swift; sourceTree = "<group>"; };
+		3F1F18E91FB2E7EA004FFEF6 /* LFAddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFAddItemViewController.swift; sourceTree = "<group>"; };
 		3F29BC991FA0A496004A0A95 /* LFDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				3F18E4761F9757A500B82022 /* AppDelegate.swift */,
 				3F18E4781F9757A500B82022 /* ViewController.swift */,
 				3F18E47A1F9757A500B82022 /* Main.storyboard */,
+				3F1F18E91FB2E7EA004FFEF6 /* LFAddItemViewController.swift */,
 				3F29BC991FA0A496004A0A95 /* LFDetailsViewController.swift */,
 				3F18E48F1F97764400B82022 /* LFTableViewController.swift */,
 				3F18E48D1F97756900B82022 /* LFItemTableViewCell.swift */,
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F18E4791F9757A500B82022 /* ViewController.swift in Sources */,
+				3F1F18EA1FB2E7EA004FFEF6 /* LFAddItemViewController.swift in Sources */,
 				3F18E4901F97764400B82022 /* LFTableViewController.swift in Sources */,
 				3F18E47F1F9757A500B82022 /* LostAndFound.xcdatamodeld in Sources */,
 				3F18E48E1F97756900B82022 /* LFItemTableViewCell.swift in Sources */,

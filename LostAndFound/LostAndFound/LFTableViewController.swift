@@ -12,12 +12,35 @@ class LFTableViewController: UITableViewController {
 
     var items = [LFItemProtocol]()
     
+    var lostItems = [LFItemProtocol]()
+    var foundItems = [LFItemProtocol]()
+    
+    @IBOutlet weak var lostFoundToggle: UISegmentedControl!
+    
+    func updateToggle() {
+        title = lostFoundToggle.titleForSegment(at: lostFoundToggle.selectedSegmentIndex)
+        if lostFoundToggle.selectedSegmentIndex == 0 {
+            items = lostItems
+        } else {
+            items = foundItems
+        }
+        self.tableView.reloadData()
+    }
+    @IBAction func lostFoundToggleChanged(_ sender: Any) {
+        updateToggle()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "FOoo"
-        items.append(LFItem(title: "fff", desc: "barrrr"))
-        items.append(LFItem(title: "12344", desc: "ncomment the following line to preserve selection between presentations sf"))
+        
+        lostItems.append(LFItem(title: "fff", desc: "barrrr"))
+        lostItems.append(LFItem(title: "12344", desc: "ncomment the following line to preserve selection between presentations sf"))
+        
+        
+        foundItems.append(LFItem(title: "xx", desc: "xxxxx"))
+        
+        updateToggle()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
