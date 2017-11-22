@@ -15,12 +15,17 @@ class LFDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = item.title
-        descLabel.text = item.description
+        descView.text = item.description
+        if let img = item.image {
+            imageView?.image = img
+        }
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
+//    @IBOutlet weak var descLabel: UILabel!
     
+    @IBOutlet weak var descView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

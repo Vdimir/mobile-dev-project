@@ -13,10 +13,14 @@ class LFItemTableViewCell: UITableViewCell {
     var item: LFItemProtocol! {
         didSet {
             mainLabel?.text = item.title
+            if let img = item.image {
+                imagePreview?.image = img
+            }
         }
     }
     
     @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var imagePreview: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -13,16 +13,15 @@ class LFTableViewController: UITableViewController {
     var items = [LFItemProtocol]()
     
     var lostItems = [LFItemProtocol]()
-    var foundItems = [LFItemProtocol]()
     
     @IBOutlet weak var lostFoundToggle: UISegmentedControl!
     
     func updateToggle() {
         title = lostFoundToggle.titleForSegment(at: lostFoundToggle.selectedSegmentIndex)
         if lostFoundToggle.selectedSegmentIndex == 0 {
-            items = lostItems
+            items = lostItems.filter { $0.type == .Lost}
         } else {
-            items = foundItems
+            items = lostItems.filter { $0.type == .Found}
         }
         self.tableView.reloadData()
     }
@@ -33,11 +32,12 @@ class LFTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lostItems.append(LFItem(title: "fff", desc: "barrrr"))
-        lostItems.append(LFItem(title: "12344", desc: "ncomment the following line to preserve selection between presentations sf"))
+        lostItems.append(LFItem(title: "LostItem1", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", type: .Lost))
+        
+        lostItems.append(LFItem(title: "LostItem2", desc: "Значимость этих проблем настолько очевидна, что сложившаяся структура организации влечет за собой процесс внедрения и модернизации позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития.", type: .Lost))
         
         
-        foundItems.append(LFItem(title: "xx", desc: "xxxxx"))
+        lostItems.append(LFItem(title: "FloudItem0", desc: "Таким образом консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития. Не следует, однако забывать, что новая модель организационной деятельности способствует подготовки и реализации систем массового участия.", type: .Found))
         
         updateToggle()
         
