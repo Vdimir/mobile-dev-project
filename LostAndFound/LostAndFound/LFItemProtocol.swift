@@ -20,6 +20,7 @@ protocol LFItemProtocol {
     var image: UIImage? { get }
     var type: LFItemType { get }
     
+    var user: LFUser { get }
 }
 
 
@@ -30,11 +31,47 @@ class LFItem : LFItemProtocol {
     
     var image: UIImage?
     
+    var user: LFUser
     var type:LFItemType
-    required init(title _title: String, desc: String, type _type: LFItemType) {
+    required init(title _title: String, desc: String, type _type: LFItemType, user _user: LFUser) {
         title = _title
         description = desc
         type = _type
+        user = _user
     }
     
+}
+
+
+class UidGen {
+    static let genrator = UidGen()
+    private static var lastUid:Int = 0
+    
+    func getUid() -> Int {
+        
+        UidGen.lastUid += 1
+        return UidGen.lastUid
+    }
+    
+    private init() {
+    }
+}
+class LFUser {
+    var FirstName :String
+    var LastName : String?
+    var userPic: UIImage?
+    var Contact: String
+    let UserId : Int
+    
+    func getName () -> String {
+        if let lastName = LastName {
+            return FirstName + " " + lastName
+        }
+        return FirstName
+    }
+    init(firstName: String, contact: String){
+        FirstName = firstName
+        Contact = contact
+        UserId = UidGen.genrator.getUid()
+    }
 }

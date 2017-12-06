@@ -21,6 +21,9 @@ class LFAddItemViewController: UIViewController
         // Do any additional setup after loading the view.
     }
 
+    @IBOutlet weak var TitleText: UITextField!
+    @IBOutlet weak var DescriptionText: UITextView!
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBAction func loadImgBtnClick(_ sender: Any) {
         imagePicker.allowsEditing = false
@@ -31,6 +34,22 @@ class LFAddItemViewController: UIViewController
     }
     
 
+    @IBOutlet weak var TypeToggle: UISegmentedControl!
+    
+    @IBAction func SaveBtnClick(_ sender: Any) {
+        var type = LFItemType.Lost
+        if TypeToggle.selectedSegmentIndex == 1 {
+            type = .Found
+        }
+        var newItem = LFItem(title: TitleText.text!, desc: DescriptionText.text, type: type, user: LFStorage.currentUser)
+        newItem.image = imageView.image
+        LFStorage.instance.add(newItem)
+        _ = navigationController?.popViewController(animated: true)
+        
+//        if let sourceViewController = sender.source as? LFTableViewController {
+//
+//        }
+    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -47,9 +66,6 @@ class LFAddItemViewController: UIViewController
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    @IBAction func saveButtonClick(_ sender: Any) {
-        
     }
     
 
