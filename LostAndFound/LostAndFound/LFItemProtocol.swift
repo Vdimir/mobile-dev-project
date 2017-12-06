@@ -61,7 +61,7 @@ class LFUser {
     var LastName : String?
     var userPic: UIImage?
     var Contact: String
-    let UserId : Int
+    let UserId : String
     
     func getName () -> String {
         if let lastName = LastName {
@@ -69,9 +69,17 @@ class LFUser {
         }
         return FirstName
     }
+    
     init(firstName: String, contact: String){
         FirstName = firstName
         Contact = contact
-        UserId = UidGen.genrator.getUid()
+        UserId = UIDevice.current.identifierForVendor!.uuidString
+    }
+    
+    
+    init(firstName: String, contact: String, id: String){
+        FirstName = firstName
+        Contact = contact
+        UserId = id
     }
 }
