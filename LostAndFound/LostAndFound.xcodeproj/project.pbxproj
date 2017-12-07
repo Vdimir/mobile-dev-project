@@ -20,9 +20,18 @@
 		3F18E4921F977B1900B82022 /* LFItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18E4911F977B1900B82022 /* LFItemProtocol.swift */; };
 		3F1F18EA1FB2E7EA004FFEF6 /* LFAddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F18E91FB2E7EA004FFEF6 /* LFAddItemViewController.swift */; };
 		3F29BC9A1FA0A496004A0A95 /* LFDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29BC991FA0A496004A0A95 /* LFDetailsViewController.swift */; };
+		3F35E6F91FD92A9300336EF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F35E6F81FD92A9300336EF3 /* GoogleService-Info.plist */; };
+		3FE570281FD93D06003E7E30 /* FireWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE570271FD93D05003E7E30 /* FireWrapper.swift */; };
+		3FE5702A1FD93D08003E7E30 /* FireAuthWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE570291FD93D08003E7E30 /* FireAuthWrapper.swift */; };
+		3FE5702D1FD93D43003E7E30 /* FireDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5702C1FD93D43003E7E30 /* FireDataWrapper.swift */; };
+		3FE5702F1FD93D63003E7E30 /* FireDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5702E1FD93D63003E7E30 /* FireDataRepresentable.swift */; };
+		3FE570311FD93DDA003E7E30 /* FirebaseDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE570301FD93DDA003E7E30 /* FirebaseDataDelegate.swift */; };
+		9A96EDE96C96890D7A85CC5C /* Pods_LostAndFound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055FD0754AB1AC1300549500 /* Pods_LostAndFound.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		055FD0754AB1AC1300549500 /* Pods_LostAndFound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LostAndFound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C6D402A256439FE29D766FB /* Pods-LostAndFound.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LostAndFound.release.xcconfig"; path = "Pods/Target Support Files/Pods-LostAndFound/Pods-LostAndFound.release.xcconfig"; sourceTree = "<group>"; };
 		3F15B4361FD7D707007DC6DE /* LFStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFStorage.swift; sourceTree = "<group>"; };
 		3F15B4381FD7E426007DC6DE /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		3F18E4731F9757A500B82022 /* LostAndFound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LostAndFound.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +47,13 @@
 		3F18E4911F977B1900B82022 /* LFItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFItemProtocol.swift; sourceTree = "<group>"; };
 		3F1F18E91FB2E7EA004FFEF6 /* LFAddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFAddItemViewController.swift; sourceTree = "<group>"; };
 		3F29BC991FA0A496004A0A95 /* LFDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFDetailsViewController.swift; sourceTree = "<group>"; };
+		3F35E6F81FD92A9300336EF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3FE570271FD93D05003E7E30 /* FireWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWrapper.swift; sourceTree = "<group>"; };
+		3FE570291FD93D08003E7E30 /* FireAuthWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthWrapper.swift; sourceTree = "<group>"; };
+		3FE5702C1FD93D43003E7E30 /* FireDataWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireDataWrapper.swift; sourceTree = "<group>"; };
+		3FE5702E1FD93D63003E7E30 /* FireDataRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireDataRepresentable.swift; sourceTree = "<group>"; };
+		3FE570301FD93DDA003E7E30 /* FirebaseDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataDelegate.swift; sourceTree = "<group>"; };
+		CE43C18067AC0DBEAEB19427 /* Pods-LostAndFound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LostAndFound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LostAndFound/Pods-LostAndFound.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A96EDE96C96890D7A85CC5C /* Pods_LostAndFound.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +73,8 @@
 			children = (
 				3F18E4751F9757A500B82022 /* LostAndFound */,
 				3F18E4741F9757A500B82022 /* Products */,
+				9399354806D03F76F76334E8 /* Pods */,
+				D1394615CA9B554A44B0550A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +89,8 @@
 		3F18E4751F9757A500B82022 /* LostAndFound */ = {
 			isa = PBXGroup;
 			children = (
+				3FE5702B1FD93D18003E7E30 /* Firebase */,
+				3F35E6F81FD92A9300336EF3 /* GoogleService-Info.plist */,
 				3F18E4761F9757A500B82022 /* AppDelegate.swift */,
 				3F18E4781F9757A500B82022 /* ViewController.swift */,
 				3F18E47A1F9757A500B82022 /* Main.storyboard */,
@@ -88,6 +109,35 @@
 			path = LostAndFound;
 			sourceTree = "<group>";
 		};
+		3FE5702B1FD93D18003E7E30 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				3FE570301FD93DDA003E7E30 /* FirebaseDataDelegate.swift */,
+				3FE5702E1FD93D63003E7E30 /* FireDataRepresentable.swift */,
+				3FE5702C1FD93D43003E7E30 /* FireDataWrapper.swift */,
+				3FE570271FD93D05003E7E30 /* FireWrapper.swift */,
+				3FE570291FD93D08003E7E30 /* FireAuthWrapper.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		9399354806D03F76F76334E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE43C18067AC0DBEAEB19427 /* Pods-LostAndFound.debug.xcconfig */,
+				1C6D402A256439FE29D766FB /* Pods-LostAndFound.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D1394615CA9B554A44B0550A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				055FD0754AB1AC1300549500 /* Pods_LostAndFound.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +145,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F18E4881F9757A500B82022 /* Build configuration list for PBXNativeTarget "LostAndFound" */;
 			buildPhases = (
+				EF98420A5D8F5ADDF75ED744 /* [CP] Check Pods Manifest.lock */,
 				3F18E46F1F9757A500B82022 /* Sources */,
 				3F18E4701F9757A500B82022 /* Frameworks */,
 				3F18E4711F9757A500B82022 /* Resources */,
+				5966A354AA3D4800EF9F2084 /* [CP] Embed Pods Frameworks */,
+				888E8ADBAFDE4BBD1B83566D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,12 +201,105 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F18E4841F9757A500B82022 /* LaunchScreen.storyboard in Resources */,
+				3F35E6F91FD92A9300336EF3 /* GoogleService-Info.plist in Resources */,
 				3F18E4811F9757A500B82022 /* Assets.xcassets in Resources */,
 				3F18E47C1F9757A500B82022 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5966A354AA3D4800EF9F2084 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LostAndFound/Pods-LostAndFound-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LostAndFound/Pods-LostAndFound-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		888E8ADBAFDE4BBD1B83566D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LostAndFound/Pods-LostAndFound-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LostAndFound/Pods-LostAndFound-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF98420A5D8F5ADDF75ED744 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LostAndFound-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F18E46F1F9757A500B82022 /* Sources */ = {
@@ -164,10 +310,15 @@
 				3F15B4391FD7E426007DC6DE /* UserViewController.swift in Sources */,
 				3F1F18EA1FB2E7EA004FFEF6 /* LFAddItemViewController.swift in Sources */,
 				3F15B4371FD7D707007DC6DE /* LFStorage.swift in Sources */,
+				3FE5702F1FD93D63003E7E30 /* FireDataRepresentable.swift in Sources */,
 				3F18E4901F97764400B82022 /* LFTableViewController.swift in Sources */,
+				3FE5702A1FD93D08003E7E30 /* FireAuthWrapper.swift in Sources */,
 				3F18E47F1F9757A500B82022 /* LostAndFound.xcdatamodeld in Sources */,
 				3F18E48E1F97756900B82022 /* LFItemTableViewCell.swift in Sources */,
 				3F18E4921F977B1900B82022 /* LFItemProtocol.swift in Sources */,
+				3FE570281FD93D06003E7E30 /* FireWrapper.swift in Sources */,
+				3FE5702D1FD93D43003E7E30 /* FireDataWrapper.swift in Sources */,
+				3FE570311FD93DDA003E7E30 /* FirebaseDataDelegate.swift in Sources */,
 				3F18E4771F9757A500B82022 /* AppDelegate.swift in Sources */,
 				3F29BC9A1FA0A496004A0A95 /* LFDetailsViewController.swift in Sources */,
 			);
@@ -304,6 +455,7 @@
 		};
 		3F18E4891F9757A500B82022 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE43C18067AC0DBEAEB19427 /* Pods-LostAndFound.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,6 +470,7 @@
 		};
 		3F18E48A1F9757A500B82022 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C6D402A256439FE29D766FB /* Pods-LostAndFound.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

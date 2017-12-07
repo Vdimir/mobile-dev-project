@@ -18,7 +18,7 @@ class UserViewController: UIViewController {
         }
         
         ContactLabel.text = user?.Contact
-        if LFStorage.currentUser.UserId != user?.UserId {
+        if LFStorage.currentUser?.FireUser != user?.FireUser {
             EditButton.isHidden = true
         }
         

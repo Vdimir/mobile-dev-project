@@ -41,7 +41,7 @@ class LFAddItemViewController: UIViewController
         if TypeToggle.selectedSegmentIndex == 1 {
             type = .Found
         }
-        var newItem = LFItem(title: TitleText.text!, desc: DescriptionText.text, type: type, user: LFStorage.currentUser)
+        var newItem = LFItem(title: TitleText.text!, desc: DescriptionText.text, type: type, user: LFStorage.currentUser!)
         newItem.image = imageView.image
         LFStorage.instance.add(newItem)
         _ = navigationController?.popViewController(animated: true)

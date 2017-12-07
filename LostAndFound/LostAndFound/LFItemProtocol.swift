@@ -10,6 +10,8 @@ import Foundation
 
 import UIKit
 
+import FirebaseAuth
+
 enum LFItemType {
     case Lost
     case Found
@@ -43,43 +45,27 @@ class LFItem : LFItemProtocol {
 }
 
 
-class UidGen {
-    static let genrator = UidGen()
-    private static var lastUid:Int = 0
-    
-    func getUid() -> Int {
-        
-        UidGen.lastUid += 1
-        return UidGen.lastUid
-    }
-    
-    private init() {
-    }
-}
+
 class LFUser {
     var FirstName :String
-    var LastName : String?
     var userPic: UIImage?
     var Contact: String
-    let UserId : String
+    var FireUser: User? // TODO make non optional
     
     func getName () -> String {
-        if let lastName = LastName {
-            return FirstName + " " + lastName
-        }
         return FirstName
     }
+    
     
     init(firstName: String, contact: String){
         FirstName = firstName
         Contact = contact
-        UserId = UIDevice.current.identifierForVendor!.uuidString
     }
     
-    
-    init(firstName: String, contact: String, id: String){
+    init(firstName: String, contact: String, fire: User){
         FirstName = firstName
         Contact = contact
-        UserId = id
+        FireUser = fire
+        
     }
 }
