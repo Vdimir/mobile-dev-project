@@ -115,9 +115,7 @@ extension AppDelegate: FireAuthWrapperDelegate {
 //                        print("signed in as", user.displayName!)
              LFStorage.currentUser = LFUser(firstName: user.displayName ?? "Bob",
                                             contact: user.email ?? "<none>",
-                                            fire: user)
-            LFStorage.instance.add(LFItem(title: "MyItem1", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", type: .Lost,
-                                user: LFStorage.currentUser!))
+                                            fire: user.uid)
             
             window?.rootViewController = storyboard?.instantiateInitialViewController()
         } else {

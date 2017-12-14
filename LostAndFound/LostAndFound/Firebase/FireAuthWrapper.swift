@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuthUI
 import FirebaseGoogleAuthUI
 
+
 protocol FireAuthWrapperDelegate: class {
     func didChangeAuth(_ auth: FireAuthWrapper, forUser user: User?)
     func failed(withError error: Error, onAction action: FireAuthWrapper.Action)
@@ -41,7 +42,7 @@ class FireAuthWrapper: NSObject, FUIAuthDelegate {
     public var signInController: UIViewController {
         let authVC = ui.authViewController()
         // remove cancel button
-//        authVC.navigationBar.items?[0].leftBarButtonItems = nil
+        authVC.navigationBar.items?[0].leftBarButtonItems = nil
         return authVC
     }
     
@@ -56,6 +57,7 @@ class FireAuthWrapper: NSObject, FUIAuthDelegate {
     public override init() {
         super.init()
         ui.providers = [FUIGoogleAuth()]
+        ui.isSignInWithEmailHidden = true
     }
     
     deinit {

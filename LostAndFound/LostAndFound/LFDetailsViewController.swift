@@ -10,7 +10,7 @@ import UIKit
 
 class LFDetailsViewController: UIViewController {
 
-    var item: LFItemProtocol!
+    var item: LFItem!
     
     @IBOutlet weak var UserInfoBtn: UIButton!
     
@@ -18,8 +18,8 @@ class LFDetailsViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = item.title
         descView.text = item.description
-        if let img = item.image {
-            imageView?.image = img
+        if let img = item.imageUrl {
+//            imageView?.image = img
         }
         UserInfoBtn.setTitle(item.user.getName() , for: .normal)
         // Do any additional setup after loading the view.

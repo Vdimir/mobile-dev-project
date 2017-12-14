@@ -8,19 +8,25 @@
 
 import UIKit
 
-class LFTableViewController: UITableViewController {
+import FirebaseDatabase
 
-    var items = [LFItemProtocol]()
+class LFTableViewController: UITableViewController, FirebaseDataDelegate {
     
+    var fireObservers = NSMutableDictionary()
+
+    var storage : [LFItem]?
+    
+    var fireSourceRef: DatabaseReference!
     
     @IBOutlet weak var lostFoundToggle: UISegmentedControl!
     
     func updateToggle() {
+        
         title = lostFoundToggle.titleForSegment(at: lostFoundToggle.selectedSegmentIndex)
         if lostFoundToggle.selectedSegmentIndex == 0 {
-            items = LFStorage.instance.items.filter { $0.type == .Lost}
+            storage = storage?.filter { $0.type == .Lost}
         } else {
-            items = LFStorage.instance.items.filter { $0.type == .Found}
+            storage = storage?.filter { $0.type == .Found}
         }
         self.tableView.reloadData()
     }
@@ -30,14 +36,40 @@ class LFTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        refreshControl?.beginRefreshing()
+        fireSourceRef.load(with: self.loadData(withSnapshot:))
+        fireSourceRef.connect(delegate: self)
+        
         updateToggle()
-        print("fdfdfdfd")
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        fireSourceRef.disconnect(delegate: self)
+    }
+    
+    
+    func loadData(withSnapshot snapshot: DataSnapshot) {
+        print("loaded")
+        
+        var r = [LFItem]()
+        
+        for child in snapshot.children {
+            if let note = LFItem.decode(fromSnapshot: child as! DataSnapshot) {
+                r.append(note)
+            }
+        }
+        storage = r
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        storage = [LFItem]()
+        fireSourceRef = FireWrapper.data.userData.child(LFItem.path)
         
         updateToggle()
         
@@ -62,24 +94,59 @@ class LFTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        return storage?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_lostfound", for: indexPath)
-        if indexPath.row >= items.count {
+        if indexPath.row >= storage?.count ?? 0 {
             return cell
         }
         
         if let c = cell as? LFItemTableViewCell {
-            let item = items[indexPath.row]
+            let item = storage![indexPath.row]
             c.item = item
         }
         
         return cell
     }
     
+    
+    
+    func fireChildRemoved(withSnapshot snapshot: DataSnapshot) {
+        print("removed")
+        var removedIds = [IndexPath]()
+        
+        if let index = storage?.index(where: { $0.fireId == snapshot.key}) {
+            removedIds.append(IndexPath(row: index, section: 0))
+            storage?.remove(at: index)
+        }
+        tableView.deleteRows(at: removedIds, with: .automatic)
+    }
+    
+    func fireChildAdded(withSnapshot snapshot: DataSnapshot) {
+        guard storage?.index(where: {$0.fireId == snapshot.key}) == nil
+            else { return }
+        print("added")
+        
+        if let note = LFItem.decode(fromSnapshot: snapshot) {
+            storage?.append(note)
+//            tableView.insertRows(at: [IndexPath(row: storage!.count-1 , section:0)], with: .automatic)
+        }
+        updateToggle()
+    }
+    
+    
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let id = storage?[indexPath.row].fireId {
+                fireSourceRef.child(id).removeValue()
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -125,7 +192,7 @@ class LFTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "show_lostfound_datail" {
             let dest = (segue.destination as? LFDetailsViewController);
-            dest?.item = items[self.tableView.indexPathForSelectedRow!.row]
+            dest?.item = storage?[self.tableView.indexPathForSelectedRow!.row]
         }
         
     }

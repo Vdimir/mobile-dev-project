@@ -41,9 +41,16 @@ class LFAddItemViewController: UIViewController
         if TypeToggle.selectedSegmentIndex == 1 {
             type = .Found
         }
-        var newItem = LFItem(title: TitleText.text!, desc: DescriptionText.text, type: type, user: LFStorage.currentUser!)
-        newItem.image = imageView.image
-        LFStorage.instance.add(newItem)
+        var newItem = LFItem(title: TitleText.text!,
+                             desc: DescriptionText.text,
+                             user: LFStorage.currentUser!,
+                             type: type)
+        
+        
+//        newItem.image = imageView.image
+        
+        
+        FireWrapper.data.setUserData(value: newItem, atPath: LFItem.path)
         _ = navigationController?.popViewController(animated: true)
         
 //        if let sourceViewController = sender.source as? LFTableViewController {

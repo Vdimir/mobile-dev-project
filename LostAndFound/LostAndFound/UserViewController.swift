@@ -14,11 +14,11 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         NameLabel.text = user?.getName()
         if let pic = user?.userPic {
-            UserPicImageView.image = pic
+//            UserPicImageView.image = pic
         }
         
         ContactLabel.text = user?.Contact
-        if LFStorage.currentUser?.FireUser != user?.FireUser {
+        if LFStorage.currentUser?.FireUid != user?.FireUid {
             EditButton.isHidden = true
         }
         
