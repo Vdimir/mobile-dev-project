@@ -16,7 +16,7 @@ class LFDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = item.title
+        titleLabel.text = item.title + " [" + item.type.rawValue + "]"
         descView.text = item.description
         if let img = item.imageUrl {
 //            imageView?.image = img

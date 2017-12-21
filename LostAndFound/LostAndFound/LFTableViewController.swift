@@ -15,6 +15,7 @@ class LFTableViewController: UITableViewController, FirebaseDataDelegate {
     var fireObservers = NSMutableDictionary()
 
     var storage : [LFItem]?
+    var displayed: [LFItem]?
     
     var fireSourceRef: DatabaseReference!
     
@@ -24,9 +25,9 @@ class LFTableViewController: UITableViewController, FirebaseDataDelegate {
         
         title = lostFoundToggle.titleForSegment(at: lostFoundToggle.selectedSegmentIndex)
         if lostFoundToggle.selectedSegmentIndex == 0 {
-            storage = storage?.filter { $0.type == .Lost}
+            displayed = storage?.filter { $0.type == .Lost}
         } else {
-            storage = storage?.filter { $0.type == .Found}
+            displayed = storage?.filter { $0.type == .Found}
         }
         self.tableView.reloadData()
     }
@@ -62,6 +63,8 @@ class LFTableViewController: UITableViewController, FirebaseDataDelegate {
         storage = r
         tableView.reloadData()
         refreshControl?.endRefreshing()
+        
+        updateToggle()
     }
     
 
@@ -94,18 +97,18 @@ class LFTableViewController: UITableViewController, FirebaseDataDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return storage?.count ?? 0
+        return displayed?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_lostfound", for: indexPath)
-        if indexPath.row >= storage?.count ?? 0 {
+        if indexPath.row >= displayed?.count ?? 0 {
             return cell
         }
         
         if let c = cell as? LFItemTableViewCell {
-            let item = storage![indexPath.row]
+            let item = displayed![indexPath.row]
             c.item = item
         }
         
@@ -114,16 +117,16 @@ class LFTableViewController: UITableViewController, FirebaseDataDelegate {
     
     
     
-    func fireChildRemoved(withSnapshot snapshot: DataSnapshot) {
-        print("removed")
-        var removedIds = [IndexPath]()
-        
-        if let index = storage?.index(where: { $0.fireId == snapshot.key}) {
-            removedIds.append(IndexPath(row: index, section: 0))
-            storage?.remove(at: index)
-        }
-        tableView.deleteRows(at: removedIds, with: .automatic)
-    }
+//    func fireChildRemoved(withSnapshot snapshot: DataSnapshot) {
+//        print("removed")
+//        var removedIds = [IndexPath]()
+//
+//        if let index = storage?.index(where: { $0.fireId == snapshot.key}) {
+//            removedIds.append(IndexPath(row: index, section: 0))
+//            storage?.remove(at: index)
+//        }
+//        tableView.deleteRows(at: removedIds, with: .automatic)
+//    }
     
     func fireChildAdded(withSnapshot snapshot: DataSnapshot) {
         guard storage?.index(where: {$0.fireId == snapshot.key}) == nil
@@ -142,7 +145,7 @@ class LFTableViewController: UITableViewController, FirebaseDataDelegate {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if let id = storage?[indexPath.row].fireId {
+            if let id = displayed?[indexPath.row].fireId {
                 fireSourceRef.child(id).removeValue()
             }
         }
@@ -192,7 +195,7 @@ class LFTableViewController: UITableViewController, FirebaseDataDelegate {
         // Pass the selected object to the new view controller.
         if segue.identifier == "show_lostfound_datail" {
             let dest = (segue.destination as? LFDetailsViewController);
-            dest?.item = storage?[self.tableView.indexPathForSelectedRow!.row]
+            dest?.item = displayed?[self.tableView.indexPathForSelectedRow!.row]
         }
         
     }
