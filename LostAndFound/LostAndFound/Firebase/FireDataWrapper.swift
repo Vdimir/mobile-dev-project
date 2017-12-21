@@ -12,7 +12,8 @@ class FireDataWrapper: NSObject {
     public let ref: DatabaseReference!
     
     override init() {
-        Database.database().isPersistenceEnabled = true
+        // TODO: enable
+        Database.database().isPersistenceEnabled = false
         ref = Database.database().reference()
     }
     

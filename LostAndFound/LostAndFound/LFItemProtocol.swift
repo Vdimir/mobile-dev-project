@@ -56,38 +56,37 @@ struct LFItem : Codable, FireDataRepresentable {
     
     static func decode(fromSnapshot snapshot: DataSnapshot) -> LFItem? {
         guard let values = snapshot.value as? [String:Any] else {return nil}
-        
+
         let title = values[CodingKeys.title.stringValue] as! String
         let description = values[CodingKeys.description.stringValue] as! String
         let typeStr = values[CodingKeys.type.stringValue] as! String
-//        let user = values[CodingKeys.user.stringValue] as! LFUser
-//        let user = LFStorage.currentUser!
+
+        let user = LFUser.decode(fromSnapshot: snapshot.childSnapshot(forPath: CodingKeys.user.stringValue))
+        
+        
+//        print( user)
         let type:LFItemType = (typeStr == "Lost" ? .Lost : .Found)
+
+//        FireWrapper.auth.currentUser?.displayName
         return LFItem(title: title, desc: description,
-                      user: LFUser(firstName: "fd", contact: "fdsf", fire: "fds"), type: type, fireId: snapshot.key)
+                      user: user! , type: type, fireId: snapshot.key)
     }
-    
+
     func encode(toChild child: DatabaseReference) {
         child.setValue([CodingKeys.title.stringValue : title,
                         CodingKeys.description.stringValue : description,
-                        CodingKeys.user.stringValue : user.FireUid,
-                        CodingKeys.type.stringValue : type.rawValue])
+                        CodingKeys.type.stringValue : type.rawValue,
+                        ])
+        
+        user.encode(toChild: child.child(CodingKeys.user.stringValue))
+        
     }
     
 }
 
 
-//extension LFItem: UIViewRepresentable {
-//    func setup(view: UIReusableType) {
-//        if let cell = view as? UITableViewCell {
-//            cell.detailTextLabel?.text = DateFormatter.defaultFormatter.string(for: self.date)
-//            cell.textLabel?.text = self.title
-//        }
-//    }
-//}
-
-
 struct LFUser: Codable, FireDataRepresentable {
+    
     static var path: String {
         return "users"
     }
@@ -114,14 +113,14 @@ struct LFUser: Codable, FireDataRepresentable {
     
     static func decode(fromSnapshot snapshot: DataSnapshot) -> LFUser? {
         guard let values = snapshot.value as? [String:Any] else {return nil}
-        
+
         let fname = values[CodingKeys.FirstName.stringValue] as! String
-        let contact = values[CodingKeys.userPic.stringValue] as! String
+        let contact = values[CodingKeys.Contact.stringValue] as! String
         let fire = values[CodingKeys.FireUid.stringValue] as! String
-        
+
         return LFUser(firstName: fname, contact: contact, fire: fire)
     }
-    
+
     func encode(toChild child: DatabaseReference) {
         child.setValue([CodingKeys.FirstName.stringValue : FirstName,
                         CodingKeys.userPic.stringValue : userPic ?? "",
