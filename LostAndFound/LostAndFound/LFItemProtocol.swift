@@ -35,6 +35,17 @@ struct LFItem : Codable, FireDataRepresentable {
     
     var imageUrl: String?
     
+    var image: UIImage? { get {
+        if let s = imageUrl {
+            
+            let dataDecoded : Data = Data(base64Encoded: s, options: .ignoreUnknownCharacters)!
+            let decodedimage = UIImage(data: dataDecoded)
+            return decodedimage
+            
+        }
+        return nil;
+        }}
+    
     var type: LFItemType
     
     
@@ -60,22 +71,27 @@ struct LFItem : Codable, FireDataRepresentable {
         let title = values[CodingKeys.title.stringValue] as! String
         let description = values[CodingKeys.description.stringValue] as! String
         let typeStr = values[CodingKeys.type.stringValue] as! String
-
+        
         let user = LFUser.decode(fromSnapshot: snapshot.childSnapshot(forPath: CodingKeys.user.stringValue))
         
-        
+        let _imageUrl = values[CodingKeys.imageUrl.stringValue] as! String?
 //        print( user)
         let type:LFItemType = (typeStr == "Lost" ? .Lost : .Found)
 
 //        FireWrapper.auth.currentUser?.displayName
-        return LFItem(title: title, desc: description,
+        var res =  LFItem(title: title, desc: description,
                       user: user! , type: type, fireId: snapshot.key)
+        
+        
+        res.imageUrl = _imageUrl
+        return res
     }
 
     func encode(toChild child: DatabaseReference) {
         child.setValue([CodingKeys.title.stringValue : title,
                         CodingKeys.description.stringValue : description,
                         CodingKeys.type.stringValue : type.rawValue,
+                        CodingKeys.imageUrl.stringValue: imageUrl
                         ])
         
         user.encode(toChild: child.child(CodingKeys.user.stringValue))

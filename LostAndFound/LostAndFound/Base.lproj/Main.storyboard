@@ -68,7 +68,7 @@
                     <navigationItem key="navigationItem" id="81t-yR-TcR">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Zfi-HI-fNP">
-                            <rect key="frame" x="127" y="9" width="121" height="30"/>
+                            <rect key="frame" x="127" y="7" width="121" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Lost"/>
@@ -80,7 +80,7 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="IjA-Lx-ENq">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t0J-nm-hBJ">
-                                <rect key="frame" x="329" y="9" width="30" height="30"/>
+                                <rect key="frame" x="329" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
@@ -163,7 +163,7 @@
                     <navigationItem key="navigationItem" title="Add" id="WNQ-fo-zZV">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="fvN-In-Dcp">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2WC-Zh-fD7">
-                                <rect key="frame" x="313" y="9" width="46" height="30"/>
+                                <rect key="frame" x="313" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -190,7 +190,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xk8-Ui-A03" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cjk-FX-YfB">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

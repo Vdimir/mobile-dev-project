@@ -31,6 +31,7 @@ class UserViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     var user: LFUser?
 
     @IBOutlet weak var UserPicImageView: UIImageView!

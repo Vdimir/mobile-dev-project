@@ -18,8 +18,8 @@ class LFDetailsViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = item.title + " [" + item.type.rawValue + "]"
         descView.text = item.description
-        if let img = item.imageUrl {
-//            imageView?.image = img
+        if let img = item.image {
+            imageView?.image = img
         }
         UserInfoBtn.setTitle(item.user.getName() , for: .normal)
         // Do any additional setup after loading the view.

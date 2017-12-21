@@ -13,8 +13,8 @@ class LFItemTableViewCell: UITableViewCell {
     var item: LFItem! {
         didSet {
             mainLabel?.text = item.title
-            if let img = item.imageUrl {
-//                imagePreview?.image = img
+            if let img = item.image {
+                imagePreview?.image = img
             }
         }
     }
