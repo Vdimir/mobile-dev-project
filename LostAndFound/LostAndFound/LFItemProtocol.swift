@@ -20,6 +20,8 @@ protocol LFItemProtocol {
     var image: UIImage? { get }
     var type: LFItemType { get }
     
+    var longitude: Double? { get }
+    var latitude: Double? { get }
     var user: LFUser { get }
 }
 
@@ -27,6 +29,8 @@ protocol LFItemProtocol {
 class LFItem : LFItemProtocol {
     var title: String
     
+    var longitude: Double?
+    var latitude: Double?
     var description: String
     
     var image: UIImage?
