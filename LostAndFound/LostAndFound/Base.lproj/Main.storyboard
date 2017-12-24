@@ -136,6 +136,14 @@
                                     <segment title="Found"/>
                                 </segments>
                             </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Eum-wg-LIe">
+                                <rect key="frame" x="30" y="441" width="329" height="157"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qFa-Hk-hsR">
+                                <rect key="frame" x="30" y="441" width="329" height="157"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -178,11 +186,12 @@
                         <outlet property="TitleText" destination="NsP-zQ-3b2" id="MUT-1J-25G"/>
                         <outlet property="TypeToggle" destination="AT5-hD-eNA" id="3nW-hE-vEC"/>
                         <outlet property="imageView" destination="JJd-Xb-zlA" id="y7g-1v-bC4"/>
+                        <outlet property="mapView" destination="qFa-Hk-hsR" id="aOz-Ui-pYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aox-Gf-ghp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3758" y="543"/>
+            <point key="canvasLocation" x="3757.5999999999999" y="542.87856071964018"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M1x-Uu-NZb">
@@ -235,6 +244,10 @@
                                     <segue destination="ciF-Yx-9q1" kind="show" identifier="show_user_detail" id="DRv-bl-Rfc"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OVq-Be-glA">
+                                <rect key="frame" x="16" y="377" width="343" height="270"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -259,6 +272,7 @@
                         <outlet property="UserInfoBtn" destination="JPR-2S-A78" id="zRZ-8o-L4n"/>
                         <outlet property="descView" destination="6t7-1u-Did" id="wFM-VW-cZW"/>
                         <outlet property="imageView" destination="TFT-w6-usv" id="0VD-F7-wOb"/>
+                        <outlet property="mapView" destination="OVq-Be-glA" id="pMv-9B-0x9"/>
                         <outlet property="titleLabel" destination="3TY-pe-kzo" id="yBl-v8-hgc"/>
                     </connections>
                 </viewController>

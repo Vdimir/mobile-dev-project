@@ -31,6 +31,8 @@ struct LFItem : Codable, FireDataRepresentable {
     
     var title: String
     
+    var longitude: Double?
+    var latitude: Double?
     var description: String
     
     var imageUrl: String?

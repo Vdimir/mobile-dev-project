@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import MapKit
 
 class LFDetailsViewController: UIViewController {
 
     var item: LFItem!
     
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var UserInfoBtn: UIButton!
+    
+    let regionRadius: CLLocationDistance = 1000
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +31,19 @@ class LFDetailsViewController: UIViewController {
             imageView?.image = img
         }
         UserInfoBtn.setTitle(item.user.getName() , for: .normal)
+        
+        if let lat = item.latitude, let logt = item.longitude {
+            centerMapOnLocation(location: CLLocation(latitude: lat, longitude: logt))
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: logt)
+            annotation.title = item.title
+            //        annotation.subtitle = "Ahmedabad"
+            
+            mapView.addAnnotation(annotation)
+        } else {
+            mapView.isHidden = true
+        }
+        
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var titleLabel: UILabel!
