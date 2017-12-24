@@ -8,15 +8,30 @@
 
 import UIKit
 import CoreData
+import Firebase
+
+
+import FirebaseAuth
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var storyboard: UIStoryboard?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        FirebaseApp.configure()
+        
+//        FireWrapper.auth.signOut()
+        storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        FireWrapper.auth.delegate = self
+        window?.rootViewController = FireWrapper.auth.signInController
+        window?.makeKeyAndVisible()
+        
+        
         return true
     }
 
@@ -90,4 +105,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
+
+extension AppDelegate: FireAuthWrapperDelegate {
+    
+    func didChangeAuth(_ auth: FireAuthWrapper, forUser user: User?) {
+        if let user = user {
+//                        print("signed in as", user.displayName!)
+             LFStorage.currentUser = LFUser(firstName: user.displayName ?? "Bob",
+                                            contact: user.email ?? "<none>",
+                                            fire: user.uid)
+            
+            window?.rootViewController = storyboard?.instantiateInitialViewController()
+        } else {
+            print("signed out")
+            window?.rootViewController = FireWrapper.auth.signInController
+        }
+    }
+    
+    func failed(withError error: Error, onAction action: FireAuthWrapper.Action) {
+        let nerror = error as NSError
+        print("Error", nerror.localizedDescription)
+        
+        let alert = UIAlertController(title: "Error", message: nerror.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+        window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+}
+
 

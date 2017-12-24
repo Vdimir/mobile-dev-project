@@ -10,7 +10,7 @@ import UIKit
 
 class LFItemTableViewCell: UITableViewCell {
 
-    var item: LFItemProtocol! {
+    var item: LFItem! {
         didSet {
             mainLabel?.text = item.title
             if let img = item.image {

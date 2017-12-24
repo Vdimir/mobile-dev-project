@@ -11,7 +11,7 @@ import MapKit
 
 class LFDetailsViewController: UIViewController {
 
-    var item: LFItemProtocol!
+    var item: LFItem!
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var UserInfoBtn: UIButton!
@@ -25,7 +25,7 @@ class LFDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = item.title
+        titleLabel.text = item.title + " [" + item.type.rawValue + "]"
         descView.text = item.description
         if let img = item.image {
             imageView?.image = img

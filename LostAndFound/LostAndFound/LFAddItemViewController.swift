@@ -17,7 +17,7 @@ class LFAddItemViewController: UIViewController
     // 1
     let locationManager = CLLocationManager()
     let imagePicker = UIImagePickerController()
-    
+    var _image: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -84,15 +84,32 @@ class LFAddItemViewController: UIViewController
         var type = LFItemType.Lost
         if TypeToggle.selectedSegmentIndex == 1 {
             type = .Found
-        }
-        var newItem = LFItem(title: TitleText.text!, desc: DescriptionText.text, type: type, user: LFStorage.currentUser)
+        }        
+        
+        var newItem = LFItem(title: TitleText.text!,
+                             desc: DescriptionText.text,
+                             user: LFStorage.currentUser!,
+                             type: type
+                             )
         
         if let loc = itemLocation {
             newItem.latitude = loc.latitude
             newItem.longitude = loc.longitude
         }
-        newItem.image = imageView.image
-        LFStorage.instance.add(newItem)
+      
+        if let img = imageView.image {
+            
+            let img_rep = UIImagePNGRepresentation(img)
+            
+            let base64String = img_rep?.base64EncodedString()//(.allZeros)
+//            let img_str = img_rep?.base64EncodedData()
+//            let img_s = img_str?.base64EncodedString(options: .lineLength64Characters)
+            newItem.imageUrl = base64String
+        }
+        imageView.image = newItem.image
+        
+        FireWrapper.data.setUserData(value: newItem, atPath: LFItem.path)
+      
         _ = navigationController?.popViewController(animated: true)
         
 //        if let sourceViewController = sender.source as? LFTableViewController {
@@ -108,9 +125,27 @@ class LFAddItemViewController: UIViewController
                                didFinishPickingMediaWithInfo info: [String : Any])
     {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imageView.image = chosenImage
-       dismiss(animated:true, completion: nil)
+        
+
+        imageView.image = resizeImage(image: chosenImage, newWidth: 400)
+        dismiss(animated:true, completion: nil)
     }
+    
+
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
