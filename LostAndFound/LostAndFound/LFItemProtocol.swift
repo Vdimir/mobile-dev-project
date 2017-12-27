@@ -78,23 +78,42 @@ struct LFItem : Codable, FireDataRepresentable {
         
         let _imageUrl = values[CodingKeys.imageUrl.stringValue] as! String?
 //        print( user)
+        
+        let _latitude = values[CodingKeys.latitude.stringValue] as! String?
+        let _longitude = values[CodingKeys.longitude.stringValue] as! String?
+        
         let type:LFItemType = (typeStr == "Lost" ? .Lost : .Found)
 
 //        FireWrapper.auth.currentUser?.displayName
         var res =  LFItem(title: title, desc: description,
                       user: user! , type: type, fireId: snapshot.key)
         
+        if let _lat = _latitude, let _long = _longitude {
+            res.latitude = Double(_lat)
+            res.longitude = Double(_long)
+        }
         
         res.imageUrl = _imageUrl
         return res
     }
 
     func encode(toChild child: DatabaseReference) {
+        
+        var latVal:String? = nil
+        var longVal:String? = nil
+        if let _lat = latitude, let _long = longitude {
+            latVal = String(format:"%f", _lat)
+            longVal = String(format:"%f", _long)
+        }
+        
         child.setValue([CodingKeys.title.stringValue : title,
                         CodingKeys.description.stringValue : description,
                         CodingKeys.type.stringValue : type.rawValue,
-                        CodingKeys.imageUrl.stringValue: imageUrl
-                        ])
+                        CodingKeys.imageUrl.stringValue: imageUrl,
+                        CodingKeys.latitude.stringValue: latVal,
+                        CodingKeys.longitude.stringValue: longVal])
+        
+            
         
         user.encode(toChild: child.child(CodingKeys.user.stringValue))
         

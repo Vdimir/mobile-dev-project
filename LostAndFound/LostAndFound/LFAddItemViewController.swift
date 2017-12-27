@@ -81,6 +81,10 @@ class LFAddItemViewController: UIViewController
     @IBOutlet weak var TypeToggle: UISegmentedControl!
     
     @IBAction func SaveBtnClick(_ sender: Any) {
+        if (TitleText.text == nil) {
+            return;
+        }
+        
         var type = LFItemType.Lost
         if TypeToggle.selectedSegmentIndex == 1 {
             type = .Found
